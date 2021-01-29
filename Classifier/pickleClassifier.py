@@ -11,7 +11,7 @@ import pickle
 
 # model = torch.load(h5file, map_location= torch.device('cpu'))
 
-pickle = pickle.load(open("Trained_model.pickle", "rb"))
+pickle = pickle.load(open("pickledmodel.pickle", "rb"))
 
 model = torch.load(pickle, map_location= torch.device('cpu'))
 
@@ -24,7 +24,7 @@ trans = transforms.Compose([
     ])
 
 def prediction():
-  image = Image.open(Path("o.jpg"))
+  image = Image.open(Path("imagefile.jpg"))
   input = trans(image)
   input = input.view(1, 3, 256,256)
 
